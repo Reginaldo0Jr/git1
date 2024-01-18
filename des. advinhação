@@ -1,0 +1,50 @@
+html = 
+<body onload="sortear()">
+
+    <!-- //EXER -->
+    <h1>Tente advinhar meu número!</h1>
+    
+    <button onclick="jogar()" id="botao">Tentar advinhar</button>
+
+    <section id="result">
+
+     <p>Já pensei em um valor entre 0 e 100...</p>
+
+    </section>
+
+</body>
+
+
+
+
+
+JavaScript = 
+
+let res = document.querySelector(`section#result`);
+let computer = 0
+let player = 0
+
+
+function sortear() {
+    let min = 1 
+    let max = 100
+    let dif = max - min 
+    let aleatorio = Math.random ()
+    computer = min + Math.trunc (dif * aleatorio);
+}
+
+function jogar() {
+    player = Number(window.prompt(`Qual é o seu palpite?`))
+    if (player < computer) {
+    res.innerHTML += `<p>Você falou ${player}. Meu numero é <strong>MAIOR</strong></p>!`
+    };
+        
+     if (player > computer) {
+        res .innerHTML += `<p>Você falou ${player}. Meu numero é <strong>MENOR</strong>!</p>`};
+
+        
+     if (player == computer) {
+        res .innerHTML += `<p><strong>PARABÉNS</strong> Você acertou! Eu tinha sorteado o valor ${computer}!</p>`
+    document.getElementById (`Botao`).style.visibility = `hidden`};
+    }
+
